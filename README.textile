@@ -1,6 +1,6 @@
 h1. Octopus
 
-* Ruby class for reading Octopus RFID card IDs (Hong Kong RFID payment card system)
+* Ruby class for reading Octopus RFID card IDs (Hong Kong RFID payment card system) on Linux
 
 h3. Background
 
