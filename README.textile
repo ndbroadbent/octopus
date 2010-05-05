@@ -12,7 +12,7 @@ being leveraged to provide things like access control to apartment buildings.
 h3. Requirements
 
 * USB Octopus Card Reader (Sony FeliCa ISO14443C)
-** Purchase a *14443C-R-USB-D2* from "http://www.rfidshop.com.hk/14443C.html":http://www.rfidshop.com.hk/14443C.html
+** Purchase a *14443C-R-USB-D2* from "http://www.rfidshop.com.hk/":http://www.rfidshop.com.hk/ under *Passive RFID Reader* -> *13.56Mhz* -> *ISO14443C - Sony Felica*
 
 * serialport gem
 
