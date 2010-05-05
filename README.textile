@@ -9,6 +9,9 @@ It can be used to purchase almost anything, such as groceries, snacks, McDonalds
 Thus practically every person living in Hong Kong carries an Octopus card with a unique ID, and this is already
 being leveraged to provide things like access control to apartment buildings.
 
+And before you get excited, please realize that this library does *not* give you read/write access to the card's internal data (such as stored value).
+It simply returns the cards unique ID.
+
 h3. Requirements
 
 * USB Octopus Card Reader (Sony FeliCa ISO14443C)
@@ -29,16 +32,17 @@ h3. Files
 h3. Setup Strings
 
 You can write different 'setup strings' to the reader to configure it.
-This is also useful when the reader plays up and needs to be reset, but the 'Octopus' class resets the reader whenever it is initialized.
+This is also useful when the reader plays up and needs to be reset, but note that the 'Octopus' class resets the reader whenever it is initialized.
 
-Below is the option interface for the setup string.
-(The USB reader uses the C4 = RS232 interface)
+Below are the different interfaces for each setup string:
 
 55AA0102C455AA = C4 = RS232 interface
 55AA0102C055AA = C0 = wiegand 26bit interface
 55AA0102C155AA = C1 = wiegand 34bit interface
 55AA0102C255AA = C2 = wiegand 36bit interface
 55AA0102C355AA = C3 = wiegand 44bit interface
+
+_(The USB reader uses the C4 = RS232 interface)_
 
 h3. Other Downloads
 
