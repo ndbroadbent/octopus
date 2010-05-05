@@ -1,0 +1,46 @@
+h1. Octopus
+
+* Ruby class for reading Octopus RFID card IDs (Hong Kong RFID payment card system)
+
+h3. Background
+
+"The Octopus card is a rechargeable contactless stored value smart card used to transfer electronic payments in online or offline systems in Hong Kong.":http://en.wikipedia.org/wiki/Octopus_card
+It can be used to purchase almost anything, such as groceries, snacks, McDonalds and bus or train fares.
+Thus practically every person living in Hong Kong carries an Octopus card with a unique ID, and this is already
+being leveraged to provide things like access control to apartment buildings.
+
+h3. Requirements
+
+* USB Octopus Card Reader (Sony FeliCa ISO14443C)
+** Purchase a *14443C-R-USB-D2* from "http://www.rfidshop.com.hk/14443C.html":http://www.rfidshop.com.hk/14443C.html
+
+* *serialport* gem
+
+@sudo gem install serialport@
+
+_Note: Linux already comes with standard drivers for the Cygwin UART chip that this device uses. The device will be registered at /dev/ttyUSB0 when it is plugged in._
+
+h3. Files
+
+| octopus.rb | Contains 'Octopus' class. |
+| octopus_test.rb | Simple testing script that wraps the Octopus class and prints tags as they are read. |
+| octopus_id_espeak_test.rb | requires 'espeak' (get it with: $ sudo apt-get install espeak). Just a basic demo that shows the kind of thing you can do with this library. |
+
+h3. Setup Strings
+
+You can write different 'setup strings' to the reader to configure it.
+This is also useful when the reader plays up and needs to be reset, but the 'Octopus' class resets the reader whenever it is initialized.
+
+Below is the option interface for the setup string.
+(The USB reader uses the C4 = RS232 interface)
+
+55AA0102C455AA = C4 = RS232 interface
+55AA0102C055AA = C0 = wiegand 26bit interface
+55AA0102C155AA = C1 = wiegand 34bit interface
+55AA0102C255AA = C2 = wiegand 36bit interface
+55AA0102C355AA = C3 = wiegand 44bit interface
+
+h3. Other Downloads
+
+Get the manufacturer's windows testing tool from here: "http://www.rfidshop.com.hk/datasheet/14443C/slcomv10.zip":http://www.rfidshop.com.hk/datasheet/14443C/slcomv10.zip
+
