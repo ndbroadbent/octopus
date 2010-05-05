@@ -14,7 +14,7 @@ h3. Requirements
 * USB Octopus Card Reader (Sony FeliCa ISO14443C)
 ** Purchase a *14443C-R-USB-D2* from "http://www.rfidshop.com.hk/14443C.html":http://www.rfidshop.com.hk/14443C.html
 
-* *serialport* gem
+* serialport gem
 
 @sudo gem install serialport@
 
