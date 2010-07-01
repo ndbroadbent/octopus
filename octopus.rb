@@ -9,15 +9,6 @@ class Octopus
   attr_accessor :port, :baud, :tag_length
   def initialize(port = "/dev/ttyUSB0", baud = 9600, tag_length = 14)
     @port, @baud, @tag_length = port, baud, tag_length
-    # Resets the reader output to 'RS232 interface' on startup
-    self.reset
-  end
-
-  def reset
-    # Sends the 'setup' string to reset the reader.
-    SerialPort.open @port, @baud do |sp|
-      sp.write "55AA0102C455AA\n"
-    end
   end
 
   def read
@@ -32,6 +23,7 @@ class Octopus
         elsif !v.empty?
           tag_id += v.strip
         end
+        tag_id.gsub!("~", "").gsub!("\n", "")
         return tag_id if tag_id.size >= @tag_length
       end
     end
