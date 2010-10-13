@@ -23,7 +23,7 @@ class Octopus
         elsif !v.empty?
           tag_id += v.strip
         end
-        tag_id.gsub!("~", "").gsub!("\n", "")
+        tag_id = tag_id.gsub("~", "").gsub("\n", "") if tag_id
         return tag_id if tag_id.size >= @tag_length
       end
     end
